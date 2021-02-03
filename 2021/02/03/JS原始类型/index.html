@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="刘国梁的博客">
+    <meta name="keyword"  content="应届生">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        JavaScript-note-JS原始类型 - hermanhesses的博客 | hermanhesses&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love life☕ , Love record📫 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/psc.jpg" />
+        </div>
+        <div class="name">
+            <i>Guoliang Liu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JS%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B"><span class="toc-text">JS原始类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Null%E5%92%8CUndefined"><span class="toc-text">Null和Undefined</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Number"><span class="toc-text">Number</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="toc-text">运算精度问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NaN"><span class="toc-text">NaN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0%E5%92%8C-0"><span class="toc-text">+0和-0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boolean"><span class="toc-text">Boolean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#string"><span class="toc-text">string</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6"><span class="toc-text">处理字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96"><span class="toc-text">类型转化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-text">字符串常用操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC"><span class="toc-text">多行文本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Symbol"><span class="toc-text">Symbol</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%81%E6%9C%89%E5%B1%9E%E6%80%A7"><span class="toc-text">私有属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E7%BD%AESymbol"><span class="toc-text">内置Symbol</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3-symbols"><span class="toc-text">迭代 symbols</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F-symbols"><span class="toc-text">正则表达式 symbols</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96-symbols"><span class="toc-text">其他 symbols</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BigInt"><span class="toc-text">BigInt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="toc-text">静态方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-text">参数</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love life☕ , Love record📫 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        JavaScript-note-JS原始类型
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2021-02-03 14:36:03</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#javaScript" title="javaScript">javaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="JS原始类型"><a href="#JS原始类型" class="headerlink" title="JS原始类型"></a>JS原始类型</h1><h2 id="Null和Undefined"><a href="#Null和Undefined" class="headerlink" title="Null和Undefined"></a>Null和Undefined</h2><p>null和undefined是javascript的两种基本类型，它们分别只有一个值。</p>
+<ul>
+<li>Null的值是null</li>
+<li>Undefined的值是undefine</li>
+<li>非严格比较下，null == undefined</li>
+</ul>
+<p>undefined表示未初始化或未定义的值。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo; <span class="comment">//标量标识符被声明而未被初始化</span></span><br><span class="line"><span class="built_in">console</span>.log(foo); <span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [a,b]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//bar函数的弟二个形参没有传入实参</span></span><br><span class="line"><span class="built_in">console</span>.log(bar(<span class="number">1</span>)); <span class="comment">//[1,undefined]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sun = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addSum</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">    sum+=num;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//addSum没有return值</span></span><br><span class="line"><span class="built_in">console</span>.log(addSum(<span class="number">10</span>));<span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//访问p对象不存在的z属性</span></span><br><span class="line"><span class="keyword">let</span> p=&#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(p.z); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+<p>null表示不确定的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo=<span class="literal">null</span>;</span><br><span class="line"><span class="built_in">console</span>.log(foo); <span class="comment">//null</span></span><br></pre></td></tr></table></figure>
+<h2 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h2><p>number表示整数和浮点数</p>
+<ul>
+<li>是符合IEEE 754标准的64位浮点数</li>
+<li>整数有二进制、八进制、十进制和十六进制表示法</li>
+<li>可以用科学计数法表示</li>
+<li>精准表示的整数范围从-2^53^+1到 2^53^-1</li>
+<li>常量Number.MAX_SAFE_INTEGER=2^53^-1</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line">-<span class="number">3</span></span><br><span class="line"><span class="number">0b101</span>  <span class="comment">//二进制表示5，0b前缀表示二进制</span></span><br><span class="line"><span class="number">0o777</span>  <span class="comment">//八进制表示511,0o前缀表示八进制</span></span><br><span class="line">-<span class="number">0x7f</span> <span class="comment">//十六进制表示-127，0x前缀表示16进制</span></span><br><span class="line"><span class="number">3e9</span>  <span class="comment">//科学计数法表示3000000000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> n1= <span class="number">10</span>,</span><br><span class="line">    n2= <span class="built_in">Number</span>.MAX_SAFE_INTEGER,</span><br><span class="line">    n3= <span class="number">1</span>,<span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.MAX_SAFE_INTEGER(n1),</span><br><span class="line">           <span class="built_in">Number</span>.isSafeInteger(n2),</span><br><span class="line">           <span class="comment">//n3是浮点数不是整数，所以结果也为false</span></span><br><span class="line">           <span class="built_in">Number</span>.isSafeInteger(n3),</span><br><span class="line">           <span class="built_in">Number</span>.isSafeInteger(n2 + <span class="number">1</span>));</span><br><span class="line"><span class="comment">//true.true,false,false</span></span><br></pre></td></tr></table></figure>
+<p>浮点数是可以表示小数</p>
+<ul>
+<li>规范规定浮点数的整数部分如果是0，0可以省略。</li>
+<li>浮点数也可以使用科学计数法。</li>
+<li>最大浮点数 Number.MAX_VALUE  // 1.7976931348623157e+308</li>
+<li>最小浮点数 Number.MIN_VALUE  //  5e-324</li>
+<li>浮点数精度 Number.EPSILON  //2.220446049250313e-16</li>
+<li>无穷大数 Infinity 可以为 Infinity == Number.MAX_VALUE * 2 == 1 / 0 ，也可以负数-Infinity</li>
+</ul>
+<h2 id="运算精度问题"><a href="#运算精度问题" class="headerlink" title="运算精度问题"></a>运算精度问题</h2><p>浮点数运算存在精度问题，不论用 == 和 === 比较浮点数</p>
+<ul>
+<li><strong>不可用相等比较浮点数</strong></li>
+<li><strong>不可用相等比较浮点数</strong></li>
+<li><strong>不可用相等比较浮点数</strong></li>
+</ul>
+<h2 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h2><p>符号 NaN 表示 Not-a-Number。在计算的过程中，遇到无法表示为数值的情况，计算结果就会是 ‘ NaN ‘ 。</p>
+<ul>
+<li>如果两个数值是NaN，它们的比较结果是不等的。</li>
+<li>Number.isNaN 判断</li>
+<li>用 Object.is 比较</li>
+</ul>
+<h2 id="0和-0"><a href="#0和-0" class="headerlink" title="+0和-0"></a>+0和-0</h2><p>数值0有+0和-0两种形态，这两个值如果比较的化是相等的。但是如果它们作为除数进行运算，分别会得到+Infinity和-Infinity。</p>
+<p>同样，如果一个有限的正数除以Infinity和-infinity分别得到+0和-0。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>/<span class="literal">Infinity</span>,<span class="number">1</span>/-<span class="literal">Infinity</span>); <span class="comment">// 0 -0</span></span><br></pre></td></tr></table></figure>
+<h2 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h2><p>Boolean类型表示逻辑真和逻辑假，它只有两个可选的值，分别是字面量true和false。</p>
+<ul>
+<li>JS的比较操作返回布尔类型的结果</li>
+<li>做布尔判断时存在隐式类型转换</li>
+<li>+0、-0、NaN、空串、undefined、null转为false</li>
+</ul>
+<h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><p>JS使用一对单引号 ‘ ‘ 或一对双引号 “ “ 来表示字符串，单引号和双引号中间不能有换行符。</p>
+<ul>
+<li>支持特殊转义符和Unicode转义符</li>
+<li>由于HTML标签属性用双引号，所以JS字符串通常推荐用单引号。</li>
+</ul>
+<p>常见的转义符</p>
+<table>
+<thead>
+<tr>
+<th>序列</th>
+<th>代表字符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\0</td>
+<td>Null字符（\u0000）</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格符（\u0008）</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>水平制表符（\u0009）</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行符（\u000A）</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>垂直制表符（\u000B）</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页符（\u000C）</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车符（\u000D）</td>
+</tr>
+<tr>
+<td>&quot;</td>
+<td>双引号（\u0022）</td>
+</tr>
+<tr>
+<td>&#39;</td>
+<td>撇号或单引号（\u0027）</td>
+</tr>
+<tr>
+<td>\</td>
+<td>反斜杠（\u005C）</td>
+</tr>
+<tr>
+<td>\xXX</td>
+<td>由 2 位十六进制数值 XX 指定的 Latin-1 字符</td>
+</tr>
+<tr>
+<td>\uXXXX</td>
+<td>由 4 位十六进制数值 XXXX 指定的 Unicode 字符</td>
+</tr>
+<tr>
+<td>\XXX</td>
+<td>由 1~3 位八进制数值（000 到 377）指定的 Latin-1 字符，可表示 256个 字符。如 \251 表示版本符号。注意，ECMAScript 3.0 不支持，考虑到兼容性不建议使用。</td>
+</tr>
+</tbody></table>
+<h2 id="处理字符"><a href="#处理字符" class="headerlink" title="处理字符"></a>处理字符</h2><p>字符串可以使用<strong>Spread</strong>操作符展开成字符数组。可以使用codePointAt方法来获得某位字符的Unicode码位。</p>
+<ul>
+<li>Unicode码位以多字节Unicode编码表示一位字符</li>
+<li>String.fromCodePoint方法可以将码位还原为字符串</li>
+</ul>
+<h2 id="类型转化"><a href="#类型转化" class="headerlink" title="类型转化"></a>类型转化</h2><p>字符串可以与其他类型数据相互操作</p>
+<ul>
+<li>+操作符触发其他的隐藏类型转化</li>
+<li>Number.parseInt与Number.parseFloat</li>
+<li>显示类型转化</li>
+<li>对象的toString方法</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log([<span class="number">1</span>+<span class="number">2</span>,<span class="string">&#x27;1&#x27;</span>+<span class="number">2</span>,<span class="string">&#x27;1&#x27;</span>-<span class="number">2</span>]);</span><br><span class="line"><span class="comment">// [3,&quot;12&quot;,-1]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.parseInt(<span class="string">&#x27;100abc&#x27;</span>,<span class="number">2</span>)); <span class="comment">//4</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">&#x27;0b100&#x27;</span>)); <span class="comment">//4</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.parseFloat(<span class="string">&#x27;12.3e10xx&#x27;</span>));</span><br><span class="line"><span class="comment">//1230000000000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo=&#123; <span class="comment">//对象的 toString方法</span></span><br><span class="line">    <span class="function"><span class="title">toString</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;foo&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo+<span class="string">&#x27;bar&#x27;</span>); <span class="comment">// foobar</span></span><br></pre></td></tr></table></figure>
+<h2 id="字符串常用操作"><a href="#字符串常用操作" class="headerlink" title="字符串常用操作"></a>字符串常用操作</h2><p>字符串内置常用方法</p>
+<ul>
+<li>字符串连接：用+连接即可，或使用join方法</li>
+<li>大小写转化：toUpperCase( ) 和toLowerCase( )</li>
+<li>逆序：reverse( )</li>
+<li>截取：slice(2,3)截取2,3之间的字符，substr(2,3)是指2后面三个字符。 例如 hello的slice(2,3)为 ‘ l ’ ,而substr为 ‘ llo ’ 。</li>
+<li>查找：indexof()</li>
+<li>替换：repalce()</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字符串方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>charAt()</td>
+<td>返回字符串中的第 n 个字符</td>
+</tr>
+<tr>
+<td>charCodeAt()</td>
+<td>返回字符串中的第 n 个字符的代码</td>
+</tr>
+<tr>
+<td>indexOf()</td>
+<td>检索字符串</td>
+</tr>
+<tr>
+<td>lastIndexOf()</td>
+<td>从后向前检索一个字符串</td>
+</tr>
+<tr>
+<td>match()</td>
+<td>找到一个或多个正则表达式的匹配，能够找出所有匹配的子字符串，并以数组的形式返回</td>
+</tr>
+<tr>
+<td>search()</td>
+<td>检索与正则表达式相匹配的子串，search() 方法和 indexOf() 的功能是相同的，查找指定字符串第一次出现的位置。但是 search() 方法仅有一个参数，定义匹配模式。</td>
+</tr>
+</tbody></table>
+<p>replace() 方法的第二个参数可以使用函数，当匹配时会调用该函数，函数的返回值将作为替换文本使用，同时函数可以接收以<code>$</code>为前缀的特殊字符，用来引用匹配文本的相关信息。</p>
+<table>
+<thead>
+<tr>
+<th>约定字符串</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$1、$2、…、$99</td>
+<td>与正则表达式中的第 1~99 个子表达式相匹配的文本</td>
+</tr>
+<tr>
+<td>$&amp;（美元符号+连字符）</td>
+<td>与正则表达式相匹配的子字符串</td>
+</tr>
+<tr>
+<td>$’（美元符号+切换技能键）</td>
+<td>位于匹配子字符串左侧的文本</td>
+</tr>
+<tr>
+<td>$’（美元符号+单引号）</td>
+<td>位于匹配字符串右侧的文本</td>
+</tr>
+<tr>
+<td>$$</td>
+<td>表示 $ 字符串</td>
+</tr>
+</tbody></table>
+<h2 id="多行文本"><a href="#多行文本" class="headerlink" title="多行文本"></a>多行文本</h2><p>ES6之后，JS支持以一对反引号  <strong>`</strong> 表示多行文本，同时也是模板字符串。</p>
+<ul>
+<li>多行文本保留空白符</li>
+<li>多行文本时模板字符串，可以解析和替换内容</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> who=<span class="string">&#x27;月影&#x27;</span>,what=<span class="string">&#x27;月饼&#x27;</span>;</span><br><span class="line">    <span class="keyword">const</span> tpl2=<span class="string">`<span class="subst">$&#123;who&#125;</span>所做的<span class="subst">$&#123;what&#125;</span></span></span><br><span class="line"><span class="string">	是全天下</span></span><br><span class="line"><span class="string">	最好吃的`</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(tpl2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h2><p>ES6及之后的版本中引入的新原始数据类型。Symbol可以创建唯一标识。</p>
+<ul>
+<li>作为对象的key</li>
+<li>Symbol.for 可以作为全局变量</li>
+<li>Symbol.keyFor 取出其设置的关键字</li>
+</ul>
+<p><strong>symbol</strong> 是一种基本数据类型 （<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Primitive">primitive data type</a>）。<code>Symbol()</code>函数会返回<strong>symbol</strong>类型的值，该类型具有静态属性和静态方法。它的静态属性会暴露几个内建的成员对象；它的静态方法会暴露全局的symbol注册，且类似于内建对象类，但作为构造函数来说它并不完整，因为它不支持语法：”<code>new Symbol()</code>“。</p>
+<p>每个从<code>Symbol()</code>返回的symbol值都是唯一的。一个symbol值能作为对象属性的标识符；这是该数据类型仅有的目的。</p>
+<h2 id="私有属性"><a href="#私有属性" class="headerlink" title="私有属性"></a>私有属性</h2><p>新的语言标准中private field有些不理想，所以也可以采用Symbol来定义私有属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> size = <span class="built_in">Symbol</span>(<span class="string">&#x27;size&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">collection</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">construcctor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>[size]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="title">add</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>[<span class="built_in">this</span>[size]]=item;</span><br><span class="line">        <span class="built_in">this</span>[size]++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="title">sizeof</span>(<span class="params">instance</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance[size];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="内置Symbol"><a href="#内置Symbol" class="headerlink" title="内置Symbol"></a>内置Symbol</h2><p>ES6内置了一些有用的Symbol，可以用力控制对象的一些内部行为。</p>
+<ul>
+<li>Symbol.iterator</li>
+<li>Symbol.toPrimitive</li>
+<li>Symbol.toStringTag</li>
+</ul>
+<h4 id="迭代-symbols"><a href="#迭代-symbols" class="headerlink" title="迭代 symbols"></a>迭代 symbols</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator"><code>Symbol.iterator</code></a></p>
+<p>一个返回一个对象默认迭代器的方法。被 <code>for...of</code> 使用。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncIterator"><code>Symbol.asyncIterator</code></a></p>
+<p>一个返回对象默认的异步迭代器的方法。被 <code>for await of</code> 使用。</p>
+<h4 id="正则表达式-symbols"><a href="#正则表达式-symbols" class="headerlink" title="正则表达式 symbols"></a>正则表达式 symbols</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/match"><code>Symbol.match</code></a></p>
+<p>一个用于对字符串进行匹配的方法，也用于确定一个对象是否可以作为正则表达式使用。被 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/match"><code>String.prototype.match()</code></a> 使用。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/replace"><code>Symbol.replace</code></a></p>
+<p>一个替换匹配字符串的子串的方法. 被 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace"><code>String.prototype.replace()</code></a> 使用。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/search"><code>Symbol.search</code></a></p>
+<p>一个返回一个字符串中与正则表达式相匹配的索引的方法。被<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/search"><code>String.prototype.search()</code></a> 使用。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/split"><code>Symbol.split</code></a></p>
+<p>一个在匹配正则表达式的索引处拆分一个字符串的方法.。被 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split"><code>String.prototype.split()</code></a> 使用。</p>
+<h4 id="其他-symbols"><a href="#其他-symbols" class="headerlink" title="其他 symbols"></a>其他 symbols</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance"><code>Symbol.hasInstance</code></a></p>
+<p>一个确定一个构造器对象识别的对象是否为它的实例的方法。被 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof"><code>instanceof</code></a> 使用。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/isConcatSpreadable"><code>Symbol.isConcatSpreadable</code></a></p>
+<p>一个布尔值，表明一个对象是否应该flattened为它的数组元素。被 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat"><code>Array.prototype.concat()</code></a> 使用。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/unscopables"><code>Symbol.unscopables</code></a></p>
+<p>拥有和继承属性名的一个对象的值被排除在与环境绑定的相关对象外。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/species"><code>Symbol.species</code></a></p>
+<p>一个用于创建派生对象的构造器函数。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive"><code>Symbol.toPrimitive</code></a></p>
+<p>一个将对象转化为基本数据类型的方法。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag"><code>Symbol.toStringTag</code></a></p>
+<p>用于对象的默认描述的字符串值。被 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toString"><code>Object.prototype.toString()</code></a> 使用。</p>
+<p>迭代Symbol实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Class Path&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        this_points=[];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">add</span>(<span class="params">...points</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>._points.push(...points);</span><br><span class="line">    &#125;</span><br><span class="line">    *[<span class="built_in">Symbol</span>.iterator]()&#123;</span><br><span class="line">        <span class="keyword">yield</span> *<span class="built_in">this</span>._points;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">get</span> <span class="title">length</span>()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>._points.length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> path=<span class="keyword">new</span> path();</span><br><span class="line">path.add([<span class="number">1</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">2</span>,<span class="number">3</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(path.length);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> point <span class="keyword">in</span> path)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(point); <span class="comment">//[1,1],[1,2],[2,3]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="BigInt"><a href="#BigInt" class="headerlink" title="BigInt"></a>BigInt</h2><p>BigInt是JavaScript新的原始类型，可以精确表示大于2^53^ -1的整数</p>
+<ul>
+<li><p>Bigint字面量：数字+n</p>
+</li>
+<li><p>BigInt运算:不能与Number直接进行运算</p>
+</li>
+<li><p>显式类型转化：BigInt与Number相互转换</p>
+<h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-cn/docs/Web/JavaScript/Reference/Global_Objects/BigInt#%E6%9E%84%E9%80%A0%E5%99%A8">构造器</a></h2><ul>
+<li><p><code>BigInt()</code></p>
+<p>创建<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt"><code>BigInt</code></a> 对象。</p>
+</li>
+</ul>
+<h2 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-cn/docs/Web/JavaScript/Reference/Global_Objects/BigInt#%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95">静态方法</a></h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt/asIntN"><code>BigInt.asIntN()</code></a></p>
+<p>将 BigInt 值转换为一个 -2width-1 与 2width-1-1 之间的有符号整数。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt/asUintN"><code>BigInt.asUintN()</code></a></p>
+<p>将一个 BigInt 值转换为 0 与 2width-1 之间的无符号整数。</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt/asUintN#%E8%AF%AD%E6%B3%95">语法</a></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BigInt.asUintN(width, bigint);</span><br></pre></td></tr></table></figure>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt/asUintN#%E5%8F%82%E6%95%B0">参数</a></h3><ul>
+<li><p><code>width</code></p>
+<p>可存储整数的位数。</p>
+</li>
+<li><p><code>bigint</code></p>
+<p> 要存储在指定位数上的整数。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a=-<span class="number">1n</span>;</span><br><span class="line"><span class="keyword">const</span> b=BigInt.asUnitN(<span class="number">16</span>, a);</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 65535n</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> c =BigInt.asIntN(<span class="number">16</span>, b-<span class="number">1n</span>);</span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">// -2n</span></span><br></pre></td></tr></table></figure>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/mu-mu-38-12-93">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/6567972249">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/hermanhesse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/国梁-刘-4b9a6b1a0">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
