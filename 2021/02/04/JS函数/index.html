@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="刘国梁的博客">
+    <meta name="keyword"  content="应届生">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        JavaScript-note-JS函数 - hermanhesses的博客 | hermanhesses&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love life☕ , Love record📫 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/psc.jpg" />
+        </div>
+        <div class="name">
+            <i>Guoliang Liu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JS%E5%87%BD%E6%95%B0"><span class="toc-text">JS函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E"><span class="toc-text">函数声明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#function"><span class="toc-text">function</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">函数表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0"><span class="toc-text">匿名函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0"><span class="toc-text">箭头函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87-%E9%97%AD%E5%8C%85"><span class="toc-text">执行上下文 ( 闭包 )</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A"><span class="toc-text">动态绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Function%E6%96%B9%E6%B3%95"><span class="toc-text">Function方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Function%E7%B1%BB"><span class="toc-text">Function类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-text">语法</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love life☕ , Love record📫 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        JavaScript-note-JS函数
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2021-02-04 01:10:57</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#javaScript" title="javaScript">javaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="JS函数"><a href="#JS函数" class="headerlink" title="JS函数"></a>JS函数</h1><h2 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h2><p>可以通过function关键字来声明一个函数</p>
+<h3 id="function"><a href="#function" class="headerlink" title="function"></a>function</h3><p>通过function关键字可以声明一个函数。</p>
+<ul>
+<li>函数声明没有块级作用域</li>
+<li>函数声明会被提升 ( hoist ) ,意思是调用函数可以在声明前调用</li>
+</ul>
+<p>一个<strong>函数定义</strong>（也称为<strong>函数声明</strong>，或<strong>函数语句</strong>）由一系列的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/JavaScript/Reference/Statements/function"><code>function</code></a>关键字组成，依次为：</p>
+<ul>
+<li>函数的名称。</li>
+<li>函数参数列表，包围在括号中并由逗号分隔。</li>
+<li>定义函数的 JavaScript 语句，用大括号<code>&#123;&#125;</code>括起来。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不带参数的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;foo bar&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//带有两个参数的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x,y=<span class="number">0</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x+y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>,<span class="number">2</span>));<span class="comment">//3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//可选参数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">x=<span class="number">0</span>,...rest</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> rest.reduce(<span class="function">(<span class="params">a,b</span>) =&gt;</span> a+b,x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>));<span class="comment">//15</span></span><br><span class="line"><span class="comment">//解构参数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">vectorlength</span>(<span class="params">&#123;x=<span class="number">0</span>,y=<span class="number">0</span>,z=<span class="number">0</span>&#125;=&#123;&#125;</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.hypot(x,y,z);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> v=&#123;<span class="attr">x</span>:<span class="number">3</span>,<span class="attr">y</span>:<span class="number">4</span>,<span class="attr">z</span>:<span class="number">0</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(vectorlength(v)); <span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+<h2 id="函数表达式"><a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h2><p>函数也是对象，因此我们可以把一个函数赋给一个变量。</p>
+<p>可以将函数作为对象使用</p>
+<ul>
+<li>函数表达式不会被提升 ( hoist ) ,不能在声明前调用函数</li>
+<li>函数表达式可以具名也可以匿名</li>
+<li>函数表达式具名只能在内部访问</li>
+</ul>
+<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><p>​    function关键字后面没有标识符的方式创建函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> functionName = <span class="function"><span class="keyword">function</span>(<span class="params">arg0, arg1, arg2</span>)</span>&#123; </span><br><span class="line"> <span class="comment">//函数体 </span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>匿名函数表达式还可以写成箭头函数</p>
+<ul>
+<li>单行箭头可以省略花括号和return</li>
+<li>只有一个参数的箭头函数可以省略圆括号</li>
+<li>箭头函数不能具名，也没有this上下文</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> angles=[<span class="number">30</span>,<span class="number">45</span>,<span class="number">60</span>,<span class="number">90</span>,<span class="number">180</span>];</span><br><span class="line"><span class="keyword">const</span> radAngles=angles.map(</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">angle</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.PI*angle/<span class="number">180</span></span><br><span class="line">    &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(radAngles);</span><br><span class="line"></span><br><span class="line"><span class="comment">//箭头函数的写法</span></span><br><span class="line"><span class="keyword">const</span> radAngles=angles.map(</span><br><span class="line">    angle=&gt;<span class="built_in">Math</span>.PI*angle/<span class="number">180</span></span><br><span class="line">);</span><br><span class="line"><span class="built_in">console</span>.log(radAngles);</span><br></pre></td></tr></table></figure>
+<h2 id="执行上下文-闭包"><a href="#执行上下文-闭包" class="headerlink" title="执行上下文 ( 闭包 )"></a>执行上下文 ( 闭包 )</h2><p>函数有执行上下文，运行时会产生”闭包”。</p>
+<ul>
+<li>闭包是运行时由函数调用产生的</li>
+<li>通过闭包可访问执行上下文的数据</li>
+<li>如果产生闭包的引用被销毁，闭包被摧毁</li>
+</ul>
+<p>实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHelloTo</span>(<span class="params">person</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;Hello  $&#123;person&#125;!&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> greeting1=sayHelloTo(<span class="string">&#x27;Tom&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> greeting2=sayHelloTo(<span class="string">&#x27;Jerry&#x27;</span>);</span><br><span class="line"></span><br><span class="line">greeting1();</span><br><span class="line">greeting2();</span><br><span class="line"></span><br><span class="line">greeting1=<span class="literal">null</span>;</span><br><span class="line">greeting2=<span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>闭包</strong>是指由全访问另一个函数作用中的变量的函数。床架你报的常见方式，就是在下一个函数内部创建另一个函数。</p>
+<h2 id="动态绑定"><a href="#动态绑定" class="headerlink" title="动态绑定"></a>动态绑定</h2><p>this上下文在函数调用时可以动态指定，方法是通过函数的call、apply或bind方法来调用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person1=&#123;<span class="attr">firstName</span>:<span class="string">&#x27;三&#x27;</span>,<span class="attr">lastName</span>:<span class="string">&#x27;张&#x27;</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(getFullName.call(person1));<span class="comment">// 张三</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> logger =&#123;</span><br><span class="line">    type:<span class="string">&#x27;info&#x27;</span>,</span><br><span class="line">    count:<span class="number">0</span>,</span><br><span class="line">    log:<span class="function"><span class="keyword">function</span>(<span class="params">message</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>[<span class="built_in">this</span>.type](message,++<span class="built_in">this</span>.count);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//call apply,bind 不能绑定this上下文，还能绑定部分参数</span></span><br><span class="line"><span class="built_in">setInterval</span>(logger.log.bind(logger,<span class="string">&#x27;heart beat&#x27;</span>),<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="Function方法"><a href="#Function方法" class="headerlink" title="Function方法"></a>Function方法</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply"><code>Function.prototype.apply()</code></a></p>
+<p>在一个对象的上下文中应用另一个对象的方法;参数能够以数组形式传入。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind"><code>Function.prototype.bind()</code></a></p>
+<p>bind（）方法会创建一个新函数，称为绑定函数。当调用这个绑定函数是，绑定函数会以创建它时传入bind（）方法的第一个参数作为this，传入bind（）方法的第一个</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call"><code>Function.prototype.call()</code></a></p>
+<p>在一个对象的上下文中应用另一个对象的方法；参数能够以列表形式传入。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person1=&#123;<span class="attr">firstName</span>:<span class="string">&#x27;三&#x27;</span>,<span class="attr">lastName</span>:<span class="string">&#x27;张&#x27;</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(getFullName.call(person1));<span class="comment">// 张三</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> logger =&#123;</span><br><span class="line">    type:<span class="string">&#x27;info&#x27;</span>,</span><br><span class="line">    count:<span class="number">0</span>,</span><br><span class="line">    log:<span class="function"><span class="keyword">function</span>(<span class="params">message</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>[<span class="built_in">this</span>.type](message,++<span class="built_in">this</span>.count);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//call apply,bind 不能绑定this上下文，还能绑定部分参数</span></span><br><span class="line"><span class="built_in">setInterval</span>(logger.log.bind(logger,<span class="string">&#x27;heart beat&#x27;</span>),<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="Function类"><a href="#Function类" class="headerlink" title="Function类"></a>Function类</h2><p>函数是Function类的实例。我们可以用Function类动态创建函数对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sum = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;return a + b&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">2</span>, <span class="number">6</span>));</span><br><span class="line"><span class="comment">// expected output: 8</span></span><br></pre></td></tr></table></figure>
+<p><code>Function</code> 创建的函数只能在全局作用域中运行。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><blockquote>
+<p>new Function ([arg1[, arg2[, …argN]],] functionBody)</p>
+</blockquote>
+<p>arg1, arg2, … arg<em>N</em> 是被函数使用的参数的名称必须是合法命名的。</p>
+<p>functionBody是一个含有包括函数定义的 JavaScript 语句的<strong>字符串</strong>。</p>
+<p>在使用call()方法时，传递给函数的参数必须逐个列举出来</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>)</span>&#123; </span><br><span class="line"> <span class="keyword">return</span> num1 + num2; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callSum</span>(<span class="params">num1, num2</span>)</span>&#123; </span><br><span class="line"> <span class="keyword">return</span> sum.call(<span class="built_in">this</span>, num1, num2); </span><br><span class="line">&#125; </span><br><span class="line">alert(callSum(<span class="number">10</span>,<span class="number">10</span>)); <span class="comment">//20</span></span><br></pre></td></tr></table></figure>
+<p>apply()方法接收两个参数：一个是在其中运行函数的作用域，另一个是参数数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>)</span>&#123; </span><br><span class="line"> <span class="keyword">return</span> num1 + num2; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callSum1</span>(<span class="params">num1, num2</span>)</span>&#123; </span><br><span class="line"> <span class="keyword">return</span> sum.apply(<span class="built_in">this</span>, <span class="built_in">arguments</span>); <span class="comment">// 传入 arguments 对象</span></span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callSum2</span>(<span class="params">num1, num2</span>)</span>&#123; </span><br><span class="line"> <span class="keyword">return</span> sum.apply(<span class="built_in">this</span>, [num1, num2]); <span class="comment">// 传入数组</span></span><br><span class="line">&#125; </span><br><span class="line">alert(callSum1(<span class="number">10</span>,<span class="number">10</span>)); <span class="comment">//20 </span></span><br><span class="line">alert(callSum2(<span class="number">10</span>,<span class="number">10</span>)); <span class="comment">//20</span></span><br></pre></td></tr></table></figure>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/mu-mu-38-12-93">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/6567972249">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/hermanhesse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/国梁-刘-4b9a6b1a0">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
