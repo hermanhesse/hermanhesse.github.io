@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="刘国梁的博客">
+    <meta name="keyword"  content="应届生">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        JavaScript-note-JS对象 - hermanhesses的博客 | hermanhesses&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love life☕ , Love record📫 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/psc.jpg" />
+        </div>
+        <div class="name">
+            <i>Guoliang Liu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JS%E5%AF%B9%E8%B1%A1"><span class="toc-text">JS对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E9%80%A0"><span class="toc-text">构造</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8%E4%B8%8E%E7%B1%BB"><span class="toc-text">构造器与类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7"><span class="toc-text">属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E5%AE%9A%E4%B9%89"><span class="toc-text">属性定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E8%AE%BF%E9%97%AE"><span class="toc-text">属性访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E9%81%8D%E5%8E%86"><span class="toc-text">属性遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9"><span class="toc-text">属性的增删改</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B"><span class="toc-text">原型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8E%9F%E5%9E%8B-%E5%8E%9F%E5%9E%8B%E9%93%BE%EF%BC%9F"><span class="toc-text">什么是原型,原型链？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="toc-text">原型链</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E7%BB%A7%E6%89%BF"><span class="toc-text">类继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E5%99%A8"><span class="toc-text">访问器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E5%99%A8%E5%B1%9E%E6%80%A7"><span class="toc-text">访问器属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0%E7%AC%A6"><span class="toc-text">描述符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#props"><span class="toc-text">props</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#defineProperties"><span class="toc-text">defineProperties</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%84"><span class="toc-text">解构</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love life☕ , Love record📫 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        JavaScript-note-JS对象
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2021-02-10 02:19:50</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#javaScript" title="javaScript">javaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="JS对象"><a href="#JS对象" class="headerlink" title="JS对象"></a>JS对象</h1><h2 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h2><p>对象是最基础的复合类型，它是一组属性的集合。对象有几种构造方式。</p>
+<ul>
+<li>通过字面量构造</li>
+<li>通过构造器构造</li>
+<li>通过原型构造</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//字面量</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> myObj=&#123;</span><br><span class="line">        name：<span class="string">&quot;akira&quot;</span>,</span><br><span class="line">        birthday:<span class="string">&quot;12-29&quot;</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//构造器</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> myObj=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">    myObj.name=<span class="string">&#x27;akira&#x27;</span>;</span><br><span class="line">    myObj.birthday=<span class="string">&#x27;12-29&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//原型</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> myObj=<span class="built_in">Object</span>.create(&#123;</span><br><span class="line">        name:<span class="string">&quot;akira&quot;</span>;</span><br><span class="line">        birthday:<span class="string">&quot;21-29&quot;</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="构造器与类"><a href="#构造器与类" class="headerlink" title="构造器与类"></a>构造器与类</h2><p>JavaScript是面向对象的编程对象，对象默认的构造器是Object，我们可以函数作为构造器或者定义class。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数作为构造器</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Vector2D</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.x=x;</span><br><span class="line">        <span class="built_in">this</span>.y=y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> v =<span class="keyword">new</span> Vector(<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(v);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义class</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Vector2D</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="title">constructor</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">            <span class="built_in">this</span>.x=x;</span><br><span class="line">            <span class="built_in">this</span>.y=y;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> v=<span class="keyword">new</span> Vector(<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(v);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p>对象的属性名可以是字符串或Symbol</p>
+<h3 id="属性定义"><a href="#属性定义" class="headerlink" title="属性定义"></a>属性定义</h3><p>对象属性定义的Key可以用合法标识符、字符串或方括号 [ ] 中的表达式。如果是表达式，计算出的值应该是字符串或者Symbol。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//属性定义</span></span><br><span class="line"><span class="keyword">const</span> data1=&#123;</span><br><span class="line">    foo:<span class="string">&#x27;foo&#x27;</span>,</span><br><span class="line">    bar:<span class="string">&#x27;bar&#x27;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//-不能为标识符，所以用字符串定义key</span></span><br><span class="line"><span class="keyword">const</span> data2=&#123;</span><br><span class="line">    <span class="string">&#x27;foo-bar&#x27;</span>:<span class="string">&#x27;foo bar&#x27;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//表达式</span></span><br><span class="line"><span class="keyword">const</span> foo=<span class="string">&#x27;foo&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> data3=&#123;</span><br><span class="line">    [foo+<span class="string">&#x27;bar&#x27;</span>]:<span class="string">&#x27;foobar&#x27;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(data1); <span class="comment">//&#123;foo: &quot;foo&quot;, bar: &quot;bar&quot;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(data2); <span class="comment">//&#123;foo-bar: &quot;foo bar&quot;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(data3); <span class="comment">//&#123;foobar: &quot;foobar&quot;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> id=<span class="built_in">Symbol</span>(<span class="string">&#x27;id&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> obj=&#123;[id]:<span class="string">&#x27;message&#x27;</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">//&#123;Symbol(id): &quot;message&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="属性访问"><a href="#属性访问" class="headerlink" title="属性访问"></a>属性访问</h3><p>对对象指定属性的访问，有两种方式:</p>
+<ul>
+<li><p>如果属性名是合法的标识符，那么可以使用 <strong>.</strong> 操作符访问</p>
+</li>
+<li><p>如果属性名是不合法的操作符，比如不符合标识符名的字符串或Symbol,或者属性名需要计算，那么我们可以通过 </p>
+<p>[ ] 操作符访问。</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> id=<span class="built_in">Symbol</span>(<span class="string">&#x27;id&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> data=&#123;</span><br><span class="line">        <span class="string">&#x27;foo-bar&#x27;</span>:<span class="string">&#x27;foo-bar&#x27;</span>,</span><br><span class="line">        [id]:<span class="string">&#x27;message&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;12&#x27;</span>:<span class="string">&#x27;result&#x27;</span>,</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(data[<span class="string">&#x27;foo-bar&#x27;</span>],data[id],data[<span class="number">3</span>*<span class="number">4</span>]);</span><br><span class="line"><span class="comment">//foo-bar message result</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//[]允许我们动态计算表达式的值作为属性名</span></span><br><span class="line"><span class="comment">//这对于我们动态转换数据结构很有帮助。</span></span><br><span class="line"><span class="keyword">const</span> students=[<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;王五&#x27;</span>];</span><br><span class="line"><span class="keyword">const</span> scores=[<span class="number">70</span>,<span class="number">100</span>,<span class="number">80</span>];</span><br><span class="line"><span class="keyword">const</span> result=&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;students.length;i++)&#123;</span><br><span class="line">        result[students[i]]=scores[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br><span class="line"><span class="comment">//&#123;张三: 70, 李四: 100, 王五: 80&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="属性遍历"><a href="#属性遍历" class="headerlink" title="属性遍历"></a>属性遍历</h3><p>除了通过对象属性名[key]访问对应1的值，我们可以对属性的Key或value分别进行遍历。</p>
+<ul>
+<li>用for …in遍历</li>
+<li>用for …of遍历，</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> scores2=&#123;</span><br><span class="line">	<span class="string">&#x27;张三&#x27;</span>:<span class="number">80</span>,</span><br><span class="line">	<span class="string">&#x27;李四&#x27;</span>:<span class="number">100</span>,</span><br><span class="line">	<span class="string">&#x27;王五&#x27;</span>:<span class="number">60</span>,</span><br><span class="line">&#125;;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> [name,score] <span class="keyword">of</span> <span class="built_in">Object</span>.entries(scores2))&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(name,score);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//output:张三 80  李四 100 王五 60</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/entries"><code>Object.entries()</code></a></p>
+<p>返回给定对象自身可枚举属性的 <code>[key, value]</code> 数组。</p>
+<h3 id="属性的增删改"><a href="#属性的增删改" class="headerlink" title="属性的增删改"></a>属性的增删改</h3><p>对象的属性可以动态添加，直接给对象属性赋值就可以，要将已有属性删除，可以用delete操作，通过in操作符,可以判断一个属性是否在对象上存在。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data2=&#123;&#125;;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//添加属性</span></span><br><span class="line">data2.foo=<span class="string">&#x27;foo&#x27;</span>;</span><br><span class="line">data2[<span class="string">&#x27;foo-bar&#x27;</span>]=<span class="string">&#x27;foo-bar&#x27;</span>;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">delete</span> data2.foo;<span class="comment">// 删除属性</span></span><br><span class="line"><span class="built_in">console</span>.log(data2.foo,data2[<span class="string">&#x27;foo-bar&#x27;</span>]);</span><br><span class="line"><span class="comment">//undefined foo-bar</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;foo&#x27;</span> <span class="keyword">in</span> data2,<span class="string">&#x27;foo-bar&#x27;</span> <span class="keyword">in</span> data2);</span><br><span class="line"><span class="comment">// false true</span></span><br></pre></td></tr></table></figure>
+<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>对象原型能在实例中共享数据。原型是对象上的特殊属性，对象可以是通过原型来共享数据。</p>
+<ul>
+<li>通过Object. create共享</li>
+<li>通过构造器共享</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过Object.create共享</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">const</span> o=&#123;<span class="attr">foo</span>:<span class="string">&#x27;foo&#x27;</span>&#125;;</span><br><span class="line">	<span class="keyword">const</span> a=<span class="built_in">Object</span>.create(o);</span><br><span class="line">	<span class="keyword">const</span> b=<span class="built_in">Object</span>.create(o);</span><br><span class="line">	a.bar=<span class="string">&#x27;bar1&#x27;</span>;</span><br><span class="line">	b.bar=<span class="string">&#x27;bar2&#x27;</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(a.foo,a.bar); <span class="comment">//foo, bar1</span></span><br><span class="line">	<span class="built_in">console</span>.log(b.foo,b.bar); <span class="comment">//foo, bar2</span></span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//通过构造器的prototype属性访问原型</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">message=<span class="string">&#x27;foo&#x27;</span></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.foo = message;</span><br><span class="line">    &#125;</span><br><span class="line">    Foo.prototype.bar=<span class="string">&#x27;bar&#x27;</span>;</span><br><span class="line">    <span class="keyword">const</span> a=<span class="keyword">new</span> Foo(<span class="string">&#x27;foo1&#x27;</span>),</span><br><span class="line">		  b=<span class="keyword">new</span> Foo(<span class="string">&#x27;foo2&#x27;</span>);</span><br><span class="line">	<span class="built_in">console</span>.log(a.foo,b.bar); <span class="comment">//foo, bar1</span></span><br><span class="line">	<span class="built_in">console</span>.log(b.foo,b.bar); <span class="comment">//foo, bar2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="什么是原型-原型链？"><a href="#什么是原型-原型链？" class="headerlink" title="什么是原型,原型链？"></a>什么是原型,原型链？</h3><p>JavaScript 常被描述为一种<strong>基于原型的语言 (prototype-based language)**——每个对象拥有一个</strong>原型对象<strong>，对象以其原型为模板、从原型继承方法和属性。原型对象也可能拥有原型，并从中继承方法和属性，一层一层、以此类推。这种关系常被称为</strong>原型链 (prototype chain)**，它解释了为何一个对象会拥有定义在其他对象中的属性和方法。</p>
+<p>准确地说，这些属性和方法定义在Object的构造器函数(constructor functions)之上的<code>prototype</code>属性上，而非对象实例本身。</p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>在JavaScript中，几乎所有对象都可以访问它的构造器上的原型对象，而这个原型对象本身又可以访问它自身的构造器上的原型对象，依次类推，就构成一个链式结构，被称为原型链。</p>
+<ul>
+<li>类型被定义在 <code>.prototype</code> 中</li>
+<li>用 <code>Object.create()</code> 来继承</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Animal.prototype=&#123;</span><br><span class="line">	<span class="function"><span class="title">eat</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">&quot;I&#x27;m  eating&quot;</span>)&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Person.prototype=<span class="keyword">new</span> Animal()</span><br><span class="line">	</span><br><span class="line">Person.prototype.speak=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;I can say something&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.name=name</span><br><span class="line">&#125;</span><br><span class="line">Student.prototype=<span class="keyword">new</span> Person();</span><br><span class="line">Student.prototype.study=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&quot;I&#x27;m learning~~~&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> student = <span class="keyword">new</span> Student(<span class="string">&#x27;张三&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(student.eat(),student.speak(),student.study())</span><br></pre></td></tr></table></figure>
+<h2 id="类继承"><a href="#类继承" class="headerlink" title="类继承"></a>类继承</h2><p>圆形类在JavaScript中起到了类继承的作用，而ES6之后，我们也可以直接用class的语法来实现类继承。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//类继承实例</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	 <span class="function"><span class="title">eat</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&quot;I&#x27;m eating&quot;</span>)</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	  <span class="function"><span class="title">speaking</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		 <span class="built_in">console</span>.log(<span class="string">&quot; I can say something&quot;</span>)</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="title">study</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&quot; I&#x27;m studying~~&quot;</span>)</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="keyword">const</span> student1=<span class="keyword">new</span> Student(<span class="string">&#x27;herman&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(student1.eat(),student1.speaking(),student1.study())</span><br></pre></td></tr></table></figure>
+<h2 id="访问器"><a href="#访问器" class="headerlink" title="访问器"></a>访问器</h2><p>根据对象的其他属性或者别的数据的改变而改变的一类属性。</p>
+<h3 id="访问器属性"><a href="#访问器属性" class="headerlink" title="访问器属性"></a>访问器属性</h3><p>对象可定义访问器属性（Accessor Property）。</p>
+<ul>
+<li>使用get/set定义</li>
+<li>使用defineProperty / defineProperties 定义</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vector2D</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="title">constructor</span>(<span class="params">x,y</span>)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.x =x;</span><br><span class="line">		<span class="built_in">this</span>.y =y;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">get</span> <span class="title">length</span>()&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(<span class="built_in">this</span>.x**<span class="number">2</span>+<span class="built_in">this</span>.y**<span class="number">2</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">set</span> <span class="title">length</span>(<span class="params">len</span>)&#123;</span><br><span class="line">		<span class="keyword">const</span> scale=len/<span class="built_in">this</span>.length;</span><br><span class="line">		<span class="built_in">this</span>.x*=scale;</span><br><span class="line">		<span class="built_in">this</span>.y*=scale;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> v1=<span class="keyword">new</span> Vector2D(<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(v1.x,v1.y,v1.length); <span class="comment">// 3,4,5</span></span><br><span class="line"></span><br><span class="line">v1.length *=<span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(v1.x,v1.y,v1.length); <span class="comment">// 6,8,10</span></span><br></pre></td></tr></table></figure>
+<h2 id="描述符"><a href="#描述符" class="headerlink" title="描述符"></a>描述符</h2><p>是一类特殊的对象，用来描述属性的访问特性。</p>
+<p>通过defineProperty/defineProperties定义属性可以指定属性描述符。通过设定对象的描述符来改变对象的属性。configurable、writable、enumerable来控制对象的行为和状态。给属性添加类型通过定义get、set或定义value。value和get、set之间设定二选一。</p>
+<p><strong><em>不可枚举就是for…in时不会显示出来</em></strong></p>
+<p>只设定get是无法给属性赋值的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj=[];</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(obj,&#123;</span><br><span class="line">	foo:&#123;</span><br><span class="line">		value:<span class="string">&#x27;foo&#x27;</span>,</span><br><span class="line">		writable:<span class="literal">true</span>,</span><br><span class="line">		configurable:<span class="literal">true</span>,</span><br><span class="line">	&#125;,</span><br><span class="line">	bar:&#123;</span><br><span class="line">		<span class="function"><span class="title">get</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="string">&#x27;bar&#x27;</span>&#125;,</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.foo,obj.bar);<span class="comment">// foo bar</span></span><br><span class="line">obj.foo=<span class="string">&#x27;foo2&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.foo,obj.bar);<span class="comment">// foo2 bar</span></span><br><span class="line"><span class="keyword">delete</span> obj.foo;</span><br><span class="line"><span class="built_in">console</span>.log(obj.foo,obj.bar);<span class="comment">// undefined  bar</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="props"><a href="#props" class="headerlink" title="props"></a><code>props</code></h3><p>要定义其可枚举属性或修改的属性描述符的对象。对象中存在的属性描述符主要有两种：数据描述符和访问器描述符（更多详情，请参阅<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"><code>Object.defineProperty()</code></a>）。描述符具有以下键：</p>
+<ul>
+<li><p><code>configurable</code></p>
+<p><code>true</code> 只有该属性描述符的类型可以被改变并且该属性可以从对应对象中删除。 <strong>默认为 <code>false</code></strong></p>
+</li>
+<li><p><code>enumerable</code></p>
+<p><code>true</code> 只有在枚举相应对象上的属性时该属性显现。 <strong>默认为 <code>false</code></strong></p>
+</li>
+<li><p><code>value</code></p>
+<p>与属性关联的值。可以是任何有效的JavaScript值（数字，对象，函数等）。 <strong>默认为 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined"><code>undefined</code></a>.</strong></p>
+</li>
+<li><p><code>writable</code></p>
+<p><code>true</code>只有与该属性相关联的值被<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Assignment_Operators">assignment operator</a>改变时。 <strong>默认为 <code>false</code></strong></p>
+</li>
+<li><p><code>get</code></p>
+<p>作为该属性的 getter 函数，如果没有 getter 则为<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined"><code>undefined</code></a>。函数返回值将被用作属性的值。 <strong>默认为 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined"><code>undefined</code></a></strong></p>
+</li>
+<li><p><code>set</code></p>
+<p>作为属性的 setter 函数，如果没有 setter 则为<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined"><code>undefined</code></a>。函数将仅接受参数赋值给该属性的新值。 <strong>默认为 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined"><code>undefined</code></a></strong></p>
+</li>
+</ul>
+<h2 id="defineProperties"><a href="#defineProperties" class="headerlink" title="defineProperties"></a>defineProperties</h2><p>通过defineProperties和属性描述符定义属性</p>
+<ul>
+<li>动态添加在对象上的普通属性默认是可删除、可写、可枚举的。</li>
+<li>定义再class上的普通属性默认是可删除、可写、不可枚举的。</li>
+<li>可以使用Object.getOwnPropertyDescriptors来获取属性描述符。</li>
+</ul>
+<p><strong><code>Object.defineProperties()</code></strong> 方法直接在一个对象上定义新的属性或修改现有属性，并返回该对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(obj, &#123;</span><br><span class="line">  <span class="string">&#x27;property1&#x27;</span>: &#123;</span><br><span class="line">    value: <span class="literal">true</span>,</span><br><span class="line">    writable: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&#x27;property2&#x27;</span>: &#123;</span><br><span class="line">    value: <span class="string">&#x27;Hello&#x27;</span>,</span><br><span class="line">    writable: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// etc. etc.</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="解构"><a href="#解构" class="headerlink" title="解构"></a>解构</h2><p>对象初始化和赋值是可以解构。</p>
+<ul>
+<li>可以用属性名来解构</li>
+<li>也可以再解构的同时重新命名</li>
+<li>解构也可以嵌套</li>
+<li>除了一般对象，数组可以解构</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数组的解构</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a, b;</span><br><span class="line">[a, b] = f();</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/mu-mu-38-12-93">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/6567972249">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/hermanhesse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/国梁-刘-4b9a6b1a0">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
